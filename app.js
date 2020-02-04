@@ -7,7 +7,7 @@ var express   =require("express"),
     methodOverride=require("method-override"),
     Cause = require("./models/cause"),
     Comment=require("./models/comment"),
-    User=require("./models/User"),
+    User=require("./models/user"),
     seeDB=require("./seeds");
 
 // var commentRoutes=require("./routes/comments"),
