@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+
+<div class="container">
+  <header class="jumbotron">
+    <div class="container">
+      <h1>causes:</h1>
+      <p>Help your cause!!</p>
+      <p>
+        <a class="btn btn-primary btn-large" href="/causes/new_cause">Add new Cause</a>
+      </p>
+    </div>
+  </header>
+
+  <div class="row text-center" style="display:flex; flex-wrap:wrap;">
+    <%causes.forEach(function(cause){%>
+      <div class="col-md-3 col-sm-6">
+        <div class="img-thumbnail">
+          <img src="<%= cause.image %>" style="width:250px">
+          <div class="caption">
+             <h4><%=cause.name%></h4>
+          </div>
+          <p>
+            <a href="/causes/<%= cause._id %>" class="btn btn-primary">More Info</a>
+          </p>
+        </div>
+
+      </div>
+    <%});%>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

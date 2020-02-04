@@ -1,0 +1,55 @@
+<%- include('partials/header') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <p class="lead">Cause</p>
+      <div class="list-group">
+        <li class="list-group-item active">Info1</li>
+        <li class="list-group-item ">Info2</li>
+        <li class="list-group-item ">Info3</li>
+
+      </div>
+    </div>
+     <div class="col-md-9">
+       <div class="img-thumbnail" >
+         <img class="img-responsive" style="width:100%;" src="<%= cause.image %>" >
+         <div class="caption-full" style="padding:9px;">
+           <!-- <h4 class="pull-right">$9.00/night</h4> -->
+           <h4><a href="#"><%=cause.name%></a></h4>
+           <p> <%= cause.description %></p>
+           <a class="btn btn-warning" href="/causes/<%= cause._id%>/edit">Edit</a>
+           <form style="display:inline;" action="/causes/<%=cause._id%>?_method=DELETE" method="POST">
+             <button class="btn btn-danger">Delete</button>
+           </form>
+         </div>
+       </div>
+       <div class="well">
+            <div class="text-right">
+                <a class="btn btn-success" href="/causes/<%= cause._id %>/comments/new">Add New Comment</a>
+            </div>
+            <hr>
+            <% cause.comments.forEach(function(comment){ %>
+            <div class="jumbotron">
+              <div class="row">
+                <div class="col-md-12">
+                <strong> <%= comment.author %></strong>
+                  <!-- <span class="text-right">10 days ago</span> -->
+                  <div class="text-right">
+                    10 days ago
+                  </div>
+                  <p>
+                  <%= comment.text %>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <%})%>
+       </div>
+     </div>
+  </div>
+</div>
+
+
+<%- include('partials/footer') %>
